@@ -1,5 +1,6 @@
 package org.adligo.xml_io.generators.models;
 
+import org.adligo.models.core.client.Address;
 import org.adligo.tests.ATest;
 import org.adligo.xml_io.generator.models.ClassFieldMethods;
 
@@ -30,7 +31,13 @@ public class ClassFieldModelTests extends ATest {
 	public void testClassFieldMethodsMockInterfaceModel() {
 		ClassFieldMethods cfm = new ClassFieldMethods(MockInterfaceModel.class);
 		assertFalse(cfm.isMutant());
-		assertFalse(cfm.isValid());
+		assertTrue(cfm.isValid());
 		
+	}
+	
+	public void testClassFieldMethodsAddress() {
+		ClassFieldMethods cfm = new ClassFieldMethods(Address.class);
+		assertFalse(cfm.isMutant());
+		assertTrue(cfm.isValid());
 	}
 }

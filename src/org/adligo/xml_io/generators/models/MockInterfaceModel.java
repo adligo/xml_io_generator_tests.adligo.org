@@ -1,6 +1,8 @@
 package org.adligo.xml_io.generators.models;
 
-public class MockInterfaceModel implements I_N {
+import org.adligo.i.util.client.I_Immutable;
+
+public class MockInterfaceModel implements I_N, I_Immutable {
 	private MockInterfaceMutant mutant;
 	
 	public MockInterfaceModel() {}
@@ -11,5 +13,10 @@ public class MockInterfaceModel implements I_N {
 
 	public String getName() {
 		return mutant.getName();
+	}
+
+	@Override
+	public String getImmutableFieldName() {
+		return "mutant";
 	}
 }
