@@ -1,12 +1,14 @@
 package org.adligo.xml_io.generators.models;
 
+import java.io.Serializable;
+
 import org.adligo.i.util.client.I_Immutable;
 
-public class MockImmutableModel implements I_Immutable {
+public class MockImmutableModel implements I_Immutable, Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 5L;
 	private String name;
 	
 	public MockImmutableModel() {}

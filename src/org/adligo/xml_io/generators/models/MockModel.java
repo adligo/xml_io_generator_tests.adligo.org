@@ -1,6 +1,9 @@
 package org.adligo.xml_io.generators.models;
 
-public class MockModel {
+import java.io.Serializable;
+
+public class MockModel implements Serializable {
+	private static final long serialVersionUID = 2L;
 	private int id;
 	@SuppressWarnings("unused")
 	private float fid;

@@ -1,6 +1,9 @@
 package org.adligo.xml_io.generators.models;
 
-public class MockInterfaceMutant implements I_N {
+import java.io.Serializable;
+
+public class MockInterfaceMutant implements I_N, Serializable {
+	private static final long serialVersionUID = 3L;
 	private String name;
 	
 	public MockInterfaceMutant() {}

@@ -1,6 +1,9 @@
 package org.adligo.xml_io.generators.models;
 
-public class MockMutant {
+import java.io.Serializable;
+
+public class MockMutant implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private transient float fid;
 	private double did;
