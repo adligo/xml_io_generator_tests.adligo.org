@@ -2,6 +2,8 @@ package org.adligo.xml_io.generators.models;
 
 import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.AddressMutant;
+import org.adligo.models.core.client.ids.StringIdentifier;
+import org.adligo.models.core.client.ids.StringIdentifierMutant;
 import org.adligo.tests.ATest;
 import org.adligo.xml_io.generator.models.ClassFieldMethods;
 
@@ -51,5 +53,14 @@ public class ClassFieldModelTests extends ATest {
 		ClassFieldMethods cfm = new ClassFieldMethods(AddressMutant.class);
 		assertTrue(cfm.isMutant());
 		assertEquals("1.006099", cfm.calculateFieldVersion().toPlainString());
+	}
+	
+	public void testClassFieldMethodsStringIdentifier() {
+		ClassFieldMethods cfm = new ClassFieldMethods(StringIdentifier.class);
+		assertFalse(cfm.isMutant());
+		assertTrue(cfm.isValid());
+		assertEquals("mutant", cfm.getImmutableFieldName());
+		assertEquals(StringIdentifierMutant.class, cfm.getImmutableFieldType());
+		assertEquals("1.0055352", cfm.calculateFieldVersion().toPlainString());
 	}
 }
