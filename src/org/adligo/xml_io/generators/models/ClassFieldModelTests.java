@@ -2,6 +2,9 @@ package org.adligo.xml_io.generators.models;
 
 import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.AddressMutant;
+import org.adligo.models.core.client.ModifyEMailListMutant;
+import org.adligo.models.core.client.ids.LongIdentifier;
+import org.adligo.models.core.client.ids.LongIdentifierMutant;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.client.ids.StringIdentifierMutant;
 import org.adligo.tests.ATest;
@@ -14,12 +17,14 @@ public class ClassFieldModelTests extends ATest {
 		assertFalse(cfm.isMutant());
 		assertFalse(cfm.isValid());
 		assertEquals("2.0053884", cfm.calculateFieldVersion().toPlainString());
+		assertFalse(cfm.isAttribute());
 	}
 	
 	public void testClassFieldMethodsMockMutant() {
 		ClassFieldMethods cfm = new ClassFieldMethods(MockMutant.class);
 		assertTrue(cfm.isMutant());
 		assertEquals("1.0050861", cfm.calculateFieldVersion().toPlainString());
+		assertFalse(cfm.isAttribute());
 	}	
 	
 	public void testClassFieldMethodsMockImmutableModel() {
@@ -27,12 +32,16 @@ public class ClassFieldModelTests extends ATest {
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
 		assertEquals("5.0055726", cfm.calculateFieldVersion().toPlainString());
+		assertTrue(cfm.isAttribute());
+		assertEquals(String.class, cfm.getAttributeClass());
 	}
 	
 	public void testClassFieldMethodsMockInterfaceMutant() {
 		ClassFieldMethods cfm = new ClassFieldMethods(MockInterfaceMutant.class);
 		assertTrue(cfm.isMutant());
 		assertEquals("3.0056936", cfm.calculateFieldVersion().toPlainString());
+		assertTrue(cfm.isAttribute());
+		assertEquals(String.class, cfm.getAttributeClass());
 	}
 	
 	public void testClassFieldMethodsMockInterfaceModel() {
@@ -40,6 +49,8 @@ public class ClassFieldModelTests extends ATest {
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
 		assertEquals("4.0059761", cfm.calculateFieldVersion().toPlainString());
+		assertTrue(cfm.isAttribute());
+		assertEquals(String.class, cfm.getAttributeClass());
 	}
 	
 	public void testClassFieldMethodsAddress() {
@@ -47,12 +58,14 @@ public class ClassFieldModelTests extends ATest {
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
 		assertEquals("1.0040988", cfm.calculateFieldVersion().toPlainString());
+		assertFalse(cfm.isAttribute());
 	}
 	
 	public void testClassFieldMethodsAddressMutant() {
 		ClassFieldMethods cfm = new ClassFieldMethods(AddressMutant.class);
 		assertTrue(cfm.isMutant());
 		assertEquals("1.006099", cfm.calculateFieldVersion().toPlainString());
+		assertFalse(cfm.isAttribute());
 	}
 	
 	public void testClassFieldMethodsStringIdentifier() {
@@ -62,5 +75,32 @@ public class ClassFieldModelTests extends ATest {
 		assertEquals("mutant", cfm.getImmutableFieldName());
 		assertEquals(StringIdentifierMutant.class, cfm.getImmutableFieldType());
 		assertEquals("1.0055352", cfm.calculateFieldVersion().toPlainString());
+		assertTrue(cfm.isAttribute());
+		assertEquals(String.class, cfm.getAttributeClass());
+	}
+	
+	public void testClassFieldMethodsLongIdentifier() {
+		ClassFieldMethods cfm = new ClassFieldMethods(LongIdentifier.class);
+		assertFalse(cfm.isMutant());
+		assertTrue(cfm.isValid());
+		assertEquals("mutant", cfm.getImmutableFieldName());
+		assertEquals(LongIdentifierMutant.class, cfm.getImmutableFieldType());
+		assertEquals("1.0052811", cfm.calculateFieldVersion().toPlainString());
+		assertTrue(cfm.isAttribute());
+		assertEquals(Long.class, cfm.getAttributeClass());
+	}
+
+	public void testClassFieldMethodsLongMutantIdentifier() {
+		ClassFieldMethods cfm = new ClassFieldMethods(LongIdentifierMutant.class);
+		assertTrue(cfm.isMutant());
+		assertTrue(cfm.isAttribute());
+		assertEquals(Long.class, cfm.getAttributeClass());
+	}
+	
+	public void testClassFieldMethodsModifyEMailListMutant() {
+		ClassFieldMethods cfm = new ClassFieldMethods(ModifyEMailListMutant.class);
+		assertTrue(cfm.isMutant());
+		assertFalse(cfm.isValid());
+		assertFalse(cfm.isAttribute());
 	}
 }
