@@ -1,14 +1,23 @@
 package org.adligo.xml_io.generators.models;
 
+import java.lang.reflect.Method;
+import java.util.List;
+
 import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.AddressMutant;
+import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.ModifyEMailListMutant;
 import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.client.ids.LongIdentifierMutant;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.client.ids.StringIdentifierMutant;
+import org.adligo.models.core.relations.client.EMail;
+import org.adligo.models.core.relations.client.EMailMutant;
+import org.adligo.models.core.relations.client.UserGroup;
+import org.adligo.models.core.relations.client.UserGroupMutant;
 import org.adligo.tests.ATest;
 import org.adligo.xml_io.generator.models.ClassFieldMethods;
+import org.adligo.xml_io.generator.models.FieldMethods;
 
 public class ClassFieldModelTests extends ATest {
 
@@ -102,5 +111,52 @@ public class ClassFieldModelTests extends ATest {
 		assertTrue(cfm.isMutant());
 		assertFalse(cfm.isValid());
 		assertFalse(cfm.isAttribute());
+	}
+	
+	public void testClassFieldMethodsDomainName() {
+		ClassFieldMethods cfm = new ClassFieldMethods(DomainName.class);
+		assertFalse(cfm.isMutant());
+		assertTrue(cfm.isValid());
+		List<FieldMethods> fms = cfm.getFieldMethods();
+		assertTrue(fms.size() == 1);
+		FieldMethods fm = fms.get(0);
+		String name = fm.getName();
+		assertEquals("name", name);
+		Method getter = fm.getGetter();
+		assertNotNull(getter);
+	}
+	
+	public void testClassFieldMethodsEMail() {
+		ClassFieldMethods cfm = new ClassFieldMethods(EMail.class);
+		assertFalse(cfm.isMutant());
+		assertTrue(cfm.isValid());
+		
+		List<FieldMethods> fms = cfm.getFieldMethods();
+		assertTrue(fms.size() == 1);
+	}
+	
+	public void testClassFieldMethodsEMailMutant() {
+		ClassFieldMethods cfm = new ClassFieldMethods(EMailMutant.class);
+		assertTrue(cfm.isMutant());
+		
+		List<FieldMethods> fms = cfm.getFieldMethods();
+		assertEquals(8, fms.size());
+	}
+	
+	public void testClassFieldMethodsUserGroup() {
+		ClassFieldMethods cfm = new ClassFieldMethods(UserGroup.class);
+		assertFalse(cfm.isMutant());
+		assertTrue(cfm.isValid());
+		
+		List<FieldMethods> fms = cfm.getFieldMethods();
+		assertEquals(1, fms.size());
+	}
+	
+	public void testClassFieldMethodsUserGroupMutant() {
+		ClassFieldMethods cfm = new ClassFieldMethods(UserGroupMutant.class);
+		assertTrue(cfm.isMutant());
+		
+		List<FieldMethods> fms = cfm.getFieldMethods();
+		assertEquals(2, fms.size());
 	}
 }
