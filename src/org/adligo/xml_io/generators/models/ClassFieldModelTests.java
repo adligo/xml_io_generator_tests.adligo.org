@@ -140,7 +140,7 @@ public class ClassFieldModelTests extends ATest {
 		assertTrue(cfm.isMutant());
 		
 		List<FieldMethods> fms = cfm.getFieldMethods();
-		assertEquals(8, fms.size());
+		assertEquals(9, fms.size());
 	}
 	
 	public void testClassFieldMethodsUserGroup() {
