@@ -8,9 +8,9 @@ import org.adligo.models.core.client.AddressMutant;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.ModifyEMailListMutant;
 import org.adligo.models.core.client.ids.LongIdentifier;
-import org.adligo.models.core.client.ids.LongIdentifierMutant;
+import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.client.ids.StringIdentifier;
-import org.adligo.models.core.client.ids.StringIdentifierMutant;
+import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.relations.client.EMail;
 import org.adligo.models.core.relations.client.EMailMutant;
 import org.adligo.models.core.relations.client.UserGroup;
@@ -81,9 +81,9 @@ public class ClassFieldModelTests extends ATest {
 		ClassFieldMethods cfm = new ClassFieldMethods(StringIdentifier.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
-		assertEquals("mutant", cfm.getImmutableFieldName());
-		assertEquals(StringIdentifierMutant.class, cfm.getImmutableFieldType());
-		assertEquals("1.0055352", cfm.calculateFieldVersion().toPlainString());
+		assertEquals("key", cfm.getImmutableFieldName());
+		assertEquals(String.class, cfm.getImmutableFieldType());
+		assertEquals("1.0051028", cfm.calculateFieldVersion().toPlainString());
 		assertTrue(cfm.isAttribute());
 		assertEquals(String.class, cfm.getAttributeClass());
 	}
@@ -92,16 +92,16 @@ public class ClassFieldModelTests extends ATest {
 		ClassFieldMethods cfm = new ClassFieldMethods(LongIdentifier.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
-		assertEquals("mutant", cfm.getImmutableFieldName());
-		assertEquals(LongIdentifierMutant.class, cfm.getImmutableFieldType());
-		assertEquals("1.0052811", cfm.calculateFieldVersion().toPlainString());
+		assertEquals("id", cfm.getImmutableFieldName());
+		assertEquals(Long.class, cfm.getImmutableFieldType());
+		assertEquals("1.0048363", cfm.calculateFieldVersion().toPlainString());
 		assertTrue(cfm.isAttribute());
 		assertEquals(Long.class, cfm.getAttributeClass());
 	}
 
 	public void testClassFieldMethodsLongMutantIdentifier() {
-		ClassFieldMethods cfm = new ClassFieldMethods(LongIdentifierMutant.class);
-		assertTrue(cfm.isMutant());
+		ClassFieldMethods cfm = new ClassFieldMethods(LongIdentifier.class);
+		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isAttribute());
 		assertEquals(Long.class, cfm.getAttributeClass());
 	}
