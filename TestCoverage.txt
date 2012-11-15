@@ -1,0 +1,4 @@
+Date,Package,Coverage
+11/14/2012,org.adligo.xml_io.generator,19.1%
+11/14/2012,org.adligo.xml_io.generator.models,46.0%
+11/14/2012,org.adligo.xml_io.generator.utils,0.0%
