@@ -65,14 +65,14 @@ public class ClassFieldModelTests extends ATest {
 		ClassFieldMethods cfm = new ClassFieldMethods(Address.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
-		assertEquals("1.0040988", cfm.calculateFieldVersion().toPlainString());
+		assertEquals("0.0040988", cfm.calculateFieldVersion().toPlainString());
 		assertFalse(cfm.isAttribute());
 	}
 	
 	public void testClassFieldMethodsAddressMutant() {
 		ClassFieldMethods cfm = new ClassFieldMethods(AddressMutant.class);
 		assertTrue(cfm.isMutant());
-		assertEquals("1.006099", cfm.calculateFieldVersion().toPlainString());
+		assertEquals("0.006099", cfm.calculateFieldVersion().toPlainString());
 		assertFalse(cfm.isAttribute());
 	}
 	
@@ -82,7 +82,7 @@ public class ClassFieldModelTests extends ATest {
 		assertTrue(cfm.isValid());
 		assertEquals("key", cfm.getImmutableFieldName());
 		assertEquals(String.class, cfm.getImmutableFieldType());
-		assertEquals("1.0051028", cfm.calculateFieldVersion().toPlainString());
+		assertEquals("0.0051028", cfm.calculateFieldVersion().toPlainString());
 		assertTrue(cfm.isAttribute());
 		assertEquals(String.class, cfm.getAttributeClass());
 	}
@@ -93,7 +93,7 @@ public class ClassFieldModelTests extends ATest {
 		assertTrue(cfm.isValid());
 		assertEquals("id", cfm.getImmutableFieldName());
 		assertEquals(Long.class, cfm.getImmutableFieldType());
-		assertEquals("1.0048363", cfm.calculateFieldVersion().toPlainString());
+		assertEquals("0.0048363", cfm.calculateFieldVersion().toPlainString());
 		assertTrue(cfm.isAttribute());
 		assertEquals(Long.class, cfm.getAttributeClass());
 	}
