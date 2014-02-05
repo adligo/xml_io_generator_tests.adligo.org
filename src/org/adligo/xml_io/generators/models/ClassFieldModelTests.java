@@ -7,9 +7,8 @@ import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.AddressMutant;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.ModifyEMailListMutant;
+import org.adligo.models.core.client.PersonMutant;
 import org.adligo.models.core.client.ids.LongIdentifier;
-import org.adligo.models.core.client.ids.LongIdentifier;
-import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.relations.client.EMail;
 import org.adligo.models.core.relations.client.EMailMutant;
@@ -133,6 +132,15 @@ public class ClassFieldModelTests extends ATest {
 		
 		List<FieldMethods> fms = cfm.getFieldMethods();
 		assertTrue(fms.size() == 1);
+	}
+	
+	public void testClassFieldMethodsPerson() {
+		ClassFieldMethods cfm = new ClassFieldMethods(PersonMutant.class);
+		assertTrue(cfm.isMutant());
+		assertFalse(cfm.isValid());
+		
+		List<FieldMethods> fms = cfm.getFieldMethods();
+		assertEquals(14, fms.size());
 	}
 	
 	public void testClassFieldMethodsEMailMutant() {

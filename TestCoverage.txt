@@ -2,3 +2,6 @@ Date,Package,Coverage,Instructions
 11/14/2012,org.adligo.xml_io.generator,0.0%,2178
 11/14/2012,org.adligo.xml_io.generator.models,46.0%,2104
 11/14/2012,org.adligo.xml_io.generator.utils,0.0%,788
+2/4/2014,org.adligo.xml_io.generator,0.0%,2282
+2/4/2014,org.adligo.xml_io.generator.models,45.9%,2096
+2/4/2014,org.adligo.xml_io.generator.utils,0.0%,933
