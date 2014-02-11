@@ -15,8 +15,8 @@ import org.adligo.models.core.relations.client.EMailMutant;
 import org.adligo.models.core.relations.client.UserGroup;
 import org.adligo.models.core.relations.client.UserGroupMutant;
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.generator.models.ClassFieldMethods;
-import org.adligo.xml_io.generator.models.FieldMethods;
+import org.adligo.xml_io_generator.models.ClassFieldMethods;
+import org.adligo.xml_io_generator.models.FieldMethods;
 
 public class ClassFieldModelTests extends ATest {
 

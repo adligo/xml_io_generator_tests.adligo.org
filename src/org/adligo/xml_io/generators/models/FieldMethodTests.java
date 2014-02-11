@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.generator.models.FieldMethods;
+import org.adligo.xml_io_generator.models.FieldMethods;
 
 public class FieldMethodTests extends ATest {
 

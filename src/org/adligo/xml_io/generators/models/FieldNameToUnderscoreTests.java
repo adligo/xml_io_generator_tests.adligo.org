@@ -1,7 +1,7 @@
 package org.adligo.xml_io.generators.models;
 
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.generator.models.FieldNameToUnderscore;
+import org.adligo.xml_io_generator.models.FieldNameToUnderscore;
 
 public class FieldNameToUnderscoreTests extends ATest {
 
