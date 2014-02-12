@@ -1,4 +1,4 @@
-package org.adligo.xml_io.generators.models;
+package org.adligo.xml_io_generators_tests;
 
 import org.adligo.tests.ATest;
 import org.adligo.xml_io_generator.models.FieldNameToUnderscore;

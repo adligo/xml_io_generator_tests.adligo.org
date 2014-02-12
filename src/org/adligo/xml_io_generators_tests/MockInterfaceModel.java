@@ -1,8 +1,8 @@
-package org.adligo.xml_io.generators.models;
+package org.adligo.xml_io_generators_tests;
 
 import java.io.Serializable;
 
-import org.adligo.i.util.client.I_Immutable;
+import org.adligo.i.util.shared.I_Immutable;
 
 public class MockInterfaceModel implements I_N, I_Immutable, Serializable {
 	private static final long serialVersionUID = 4L;

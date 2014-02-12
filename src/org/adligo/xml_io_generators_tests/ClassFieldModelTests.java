@@ -1,19 +1,19 @@
-package org.adligo.xml_io.generators.models;
+package org.adligo.xml_io_generators_tests;
 
 import java.lang.reflect.Method;
 import java.util.List;
 
-import org.adligo.models.core.client.Address;
-import org.adligo.models.core.client.AddressMutant;
-import org.adligo.models.core.client.DomainName;
-import org.adligo.models.core.client.ModifyEMailListMutant;
-import org.adligo.models.core.client.PersonMutant;
-import org.adligo.models.core.client.ids.LongIdentifier;
-import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.relations.client.EMail;
 import org.adligo.models.core.relations.client.EMailMutant;
 import org.adligo.models.core.relations.client.UserGroup;
 import org.adligo.models.core.relations.client.UserGroupMutant;
+import org.adligo.models.core.shared.Address;
+import org.adligo.models.core.shared.AddressMutant;
+import org.adligo.models.core.shared.DomainName;
+import org.adligo.models.core.shared.ModifyEMailListMutant;
+import org.adligo.models.core.shared.PersonMutant;
+import org.adligo.models.core.shared.ids.LongIdentifier;
+import org.adligo.models.core.shared.ids.StringIdentifier;
 import org.adligo.tests.ATest;
 import org.adligo.xml_io_generator.models.ClassFieldMethods;
 import org.adligo.xml_io_generator.models.FieldMethods;

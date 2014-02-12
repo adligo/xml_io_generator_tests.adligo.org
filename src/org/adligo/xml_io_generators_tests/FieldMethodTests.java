@@ -1,4 +1,4 @@
-package org.adligo.xml_io.generators.models;
+package org.adligo.xml_io_generators_tests;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
