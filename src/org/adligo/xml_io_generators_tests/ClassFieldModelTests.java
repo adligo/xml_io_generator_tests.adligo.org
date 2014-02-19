@@ -3,6 +3,7 @@ package org.adligo.xml_io_generators_tests;
 import java.lang.reflect.Method;
 import java.util.List;
 
+import org.adligo.i.util.shared.I_Immutable;
 import org.adligo.models.core.shared.Address;
 import org.adligo.models.core.shared.AddressMutant;
 import org.adligo.models.core.shared.DomainName;
@@ -19,8 +20,13 @@ import org.adligo.xml_io_generator.models.ClassFieldMethods;
 import org.adligo.xml_io_generator.models.FieldMethods;
 
 public class ClassFieldModelTests extends ATest {
+	
+	@Override
+	public void setUp() {
+		ClassFieldMethods.setI_IMMUTABLE(I_Immutable.class);
+	}
 
-	public void testClassFieldMethodsMockModel() {
+	public void testClassFieldMethodsMockModel() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(MockModel.class);
 		assertFalse(cfm.isMutant());
 		assertFalse(cfm.isValid());
@@ -28,14 +34,14 @@ public class ClassFieldModelTests extends ATest {
 		assertFalse(cfm.isAttribute());
 	}
 	
-	public void testClassFieldMethodsMockMutant() {
+	public void testClassFieldMethodsMockMutant() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(MockMutant.class);
 		assertTrue(cfm.isMutant());
 		assertEquals("1.0051031", cfm.calculateFieldVersion().toPlainString());
 		assertFalse(cfm.isAttribute());
 	}	
 	
-	public void testClassFieldMethodsMockImmutableModel() {
+	public void testClassFieldMethodsMockImmutableModel() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(MockImmutableModel.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
@@ -44,7 +50,7 @@ public class ClassFieldModelTests extends ATest {
 		assertEquals(String.class, cfm.getAttributeClass());
 	}
 	
-	public void testClassFieldMethodsMockInterfaceMutant() {
+	public void testClassFieldMethodsMockInterfaceMutant() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(MockInterfaceMutant.class);
 		assertTrue(cfm.isMutant());
 		assertEquals("3.0057106", cfm.calculateFieldVersion().toPlainString());
@@ -52,7 +58,7 @@ public class ClassFieldModelTests extends ATest {
 		assertEquals(String.class, cfm.getAttributeClass());
 	}
 	
-	public void testClassFieldMethodsMockInterfaceModel() {
+	public void testClassFieldMethodsMockInterfaceModel() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(MockInterfaceModel.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
@@ -61,7 +67,7 @@ public class ClassFieldModelTests extends ATest {
 		assertEquals(String.class, cfm.getAttributeClass());
 	}
 	
-	public void testClassFieldMethodsAddress() {
+	public void testClassFieldMethodsAddress() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(Address.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
@@ -69,14 +75,14 @@ public class ClassFieldModelTests extends ATest {
 		assertFalse(cfm.isAttribute());
 	}
 	
-	public void testClassFieldMethodsAddressMutant() {
+	public void testClassFieldMethodsAddressMutant() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(AddressMutant.class);
 		assertTrue(cfm.isMutant());
 		assertEquals("0.0060902", cfm.calculateFieldVersion().toPlainString());
 		assertFalse(cfm.isAttribute());
 	}
 	
-	public void testClassFieldMethodsStringIdentifier() {
+	public void testClassFieldMethodsStringIdentifier() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(StringIdentifier.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
@@ -87,7 +93,7 @@ public class ClassFieldModelTests extends ATest {
 		assertEquals(String.class, cfm.getAttributeClass());
 	}
 	
-	public void testClassFieldMethodsLongIdentifier() {
+	public void testClassFieldMethodsLongIdentifier() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(LongIdentifier.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
@@ -98,21 +104,21 @@ public class ClassFieldModelTests extends ATest {
 		assertEquals(Long.class, cfm.getAttributeClass());
 	}
 
-	public void testClassFieldMethodsLongMutantIdentifier() {
+	public void testClassFieldMethodsLongMutantIdentifier() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(LongIdentifier.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isAttribute());
 		assertEquals(Long.class, cfm.getAttributeClass());
 	}
 	
-	public void testClassFieldMethodsModifyEMailListMutant() {
+	public void testClassFieldMethodsModifyEMailListMutant() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(ModifyEMailListMutant.class);
 		assertTrue(cfm.isMutant());
 		assertFalse(cfm.isValid());
 		assertFalse(cfm.isAttribute());
 	}
 	
-	public void testClassFieldMethodsDomainName() {
+	public void testClassFieldMethodsDomainName() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(DomainName.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
@@ -125,7 +131,7 @@ public class ClassFieldModelTests extends ATest {
 		assertNotNull(getter);
 	}
 	
-	public void testClassFieldMethodsEMail() {
+	public void testClassFieldMethodsEMail() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(EMail.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
@@ -134,7 +140,7 @@ public class ClassFieldModelTests extends ATest {
 		assertTrue(fms.size() == 1);
 	}
 	
-	public void testClassFieldMethodsPerson() {
+	public void testClassFieldMethodsPerson() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(PersonMutant.class);
 		assertTrue(cfm.isMutant());
 		assertFalse(cfm.isValid());
@@ -143,7 +149,7 @@ public class ClassFieldModelTests extends ATest {
 		assertEquals(14, fms.size());
 	}
 	
-	public void testClassFieldMethodsEMailMutant() {
+	public void testClassFieldMethodsEMailMutant() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(EMailMutant.class);
 		assertTrue(cfm.isMutant());
 		
@@ -151,7 +157,7 @@ public class ClassFieldModelTests extends ATest {
 		assertEquals(9, fms.size());
 	}
 	
-	public void testClassFieldMethodsUserGroup() {
+	public void testClassFieldMethodsUserGroup() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(UserGroup.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
@@ -160,7 +166,7 @@ public class ClassFieldModelTests extends ATest {
 		assertEquals(1, fms.size());
 	}
 	
-	public void testClassFieldMethodsUserGroupMutant() {
+	public void testClassFieldMethodsUserGroupMutant() throws Exception {
 		ClassFieldMethods cfm = new ClassFieldMethods(UserGroupMutant.class);
 		assertTrue(cfm.isMutant());
 		
