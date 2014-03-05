@@ -4,3 +4,4 @@ classes_e/
 xml_io_generator_tests*.jar
 test_reports/
 
+/test_failure.properties
