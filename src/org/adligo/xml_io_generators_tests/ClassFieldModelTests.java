@@ -13,8 +13,8 @@ import org.adligo.models.core_relations.shared.EMail;
 import org.adligo.models.core_relations.shared.EMailMutant;
 import org.adligo.models.core_relations.shared.UserGroup;
 import org.adligo.models.core_relations.shared.UserGroupMutant;
-import org.adligo.models.core_relations.shared.ids.LongIdentifier;
-import org.adligo.models.core_relations.shared.ids.StringIdentifier;
+import org.adligo.models.core_relations.shared.ids.LongIdentifierMutant;
+import org.adligo.models.core_relations.shared.ids.StringIdentifierMutant;
 import org.adligo.tests.ATest;
 import org.adligo.xml_io_generator.models.ClassFieldMethods;
 import org.adligo.xml_io_generator.models.FieldMethods;
@@ -83,7 +83,7 @@ public class ClassFieldModelTests extends ATest {
 	}
 	
 	public void testClassFieldMethodsStringIdentifier() throws Exception {
-		ClassFieldMethods cfm = new ClassFieldMethods(StringIdentifier.class);
+		ClassFieldMethods cfm = new ClassFieldMethods(StringIdentifierMutant.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
 		assertEquals("key", cfm.getImmutableFieldName());
@@ -94,7 +94,7 @@ public class ClassFieldModelTests extends ATest {
 	}
 	
 	public void testClassFieldMethodsLongIdentifier() throws Exception {
-		ClassFieldMethods cfm = new ClassFieldMethods(LongIdentifier.class);
+		ClassFieldMethods cfm = new ClassFieldMethods(LongIdentifierMutant.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isValid());
 		assertEquals("id", cfm.getImmutableFieldName());
@@ -105,7 +105,7 @@ public class ClassFieldModelTests extends ATest {
 	}
 
 	public void testClassFieldMethodsLongMutantIdentifier() throws Exception {
-		ClassFieldMethods cfm = new ClassFieldMethods(LongIdentifier.class);
+		ClassFieldMethods cfm = new ClassFieldMethods(LongIdentifierMutant.class);
 		assertFalse(cfm.isMutant());
 		assertTrue(cfm.isAttribute());
 		assertEquals(Long.class, cfm.getAttributeClass());
