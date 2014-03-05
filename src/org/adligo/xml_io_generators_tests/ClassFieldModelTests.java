@@ -164,7 +164,7 @@ public class ClassFieldModelTests extends ATest {
 		assertFalse(cfm.isValidImmutable());
 		
 		List<FieldMethods> fms = cfm.getFieldMethods();
-		assertEquals(14, fms.size());
+		assertEquals(13, fms.size());
 	}
 	
 	public void testClassFieldMethodsEMailMutant() throws Exception {
