@@ -17,6 +17,7 @@
         <lns:project>params.adligo.org</lns:project>
         <lns:project>tests.adligo.org</lns:project>
         <lns:project>xml_io.adligo.org</lns:project>
+        <lns:project>xml_io_generator.adligo.org</lns:project>
         <lns:project>xmlt.adligo.org</lns:project>
     </lns:dependencies>
  </tns:fabricate_project>
